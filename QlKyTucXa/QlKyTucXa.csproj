@@ -64,6 +64,7 @@
     <Compile Include="AddNewStudent.Designer.cs">
       <DependentUpon>AddNewStudent.cs</DependentUpon>
     </Compile>
+    <Compile Include="Classes\DataProcesser.cs" />
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
