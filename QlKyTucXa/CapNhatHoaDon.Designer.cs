@@ -258,6 +258,7 @@
             this.txt_TenNhanVien.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txt_TenNhanVien.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_TenNhanVien.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_TenNhanVien.Enabled = false;
             this.txt_TenNhanVien.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_TenNhanVien.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_TenNhanVien.ForeColor = System.Drawing.Color.Black;
@@ -267,6 +268,7 @@
             this.txt_TenNhanVien.Name = "txt_TenNhanVien";
             this.txt_TenNhanVien.PasswordChar = '\0';
             this.txt_TenNhanVien.PlaceholderText = "";
+            this.txt_TenNhanVien.ReadOnly = true;
             this.txt_TenNhanVien.SelectedText = "";
             this.txt_TenNhanVien.Size = new System.Drawing.Size(229, 36);
             this.txt_TenNhanVien.TabIndex = 5;
@@ -279,6 +281,7 @@
             this.txt_MaNhanVien.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txt_MaNhanVien.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_MaNhanVien.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_MaNhanVien.Enabled = false;
             this.txt_MaNhanVien.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_MaNhanVien.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_MaNhanVien.ForeColor = System.Drawing.Color.Black;
@@ -288,6 +291,7 @@
             this.txt_MaNhanVien.Name = "txt_MaNhanVien";
             this.txt_MaNhanVien.PasswordChar = '\0';
             this.txt_MaNhanVien.PlaceholderText = "";
+            this.txt_MaNhanVien.ReadOnly = true;
             this.txt_MaNhanVien.SelectedText = "";
             this.txt_MaNhanVien.Size = new System.Drawing.Size(229, 36);
             this.txt_MaNhanVien.TabIndex = 5;

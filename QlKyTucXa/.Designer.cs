@@ -98,6 +98,7 @@
             this.guna2Button1.Size = new System.Drawing.Size(282, 68);
             this.guna2Button1.TabIndex = 13;
             this.guna2Button1.Text = "Hóa đơn phòng";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // btnExit
             // 

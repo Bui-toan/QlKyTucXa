@@ -1,5 +1,6 @@
 ﻿using Guna.UI2.WinForms;
 using QlKyTucXa.DAO;
+using QlKyTucXa.Models;
 using QlKyTucXa.Singleton;
 using QlKyTucXa.Utils;
 using System;
@@ -35,7 +36,8 @@ namespace QlKyTucXa
             };
             cb_TrangThai.DisplayMember = "Key";
             cb_TrangThai.ValueMember = "Value";
-
+            txt_MaNhanVien.Text = UserInfor.MaNhanVien;
+            txt_TenNhanVien.Text = UserInfor.TenNhanVien;
             string sql = "SELECT H.MaHoaDon, H.Thang,H.Nam,H.Tiendien,H.Tiennuoc,H.Tienvesinh," +
                 "H.NgayTao, H.TrangThai,P.Tienphong,P.Tenphong,P.Songuoidao,P.Songuoitoida,P.MaPhong " +
                 "from HoaDon as H join Phong as P on H.MaPhong = P.MaPhong " +

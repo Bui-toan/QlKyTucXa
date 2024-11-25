@@ -22,6 +22,7 @@ namespace QlKyTucXa
 
         private void QuanLyHoaDonPhong_Load(object sender, System.EventArgs e)
         {
+            Location = new Point(450, 185);
             LoadNam();
             LoadThang();
             ReloadButtonChuaLapHoaDon();
@@ -44,23 +45,25 @@ namespace QlKyTucXa
             int totalWidth = dgv.Width - dgv.RowHeadersWidth;
 
             dgv.Columns["MaPhong"].HeaderText = "Mã Phòng";
-            dgv.Columns["MaPhong"].Width = (int)(totalWidth * 0.2);
-            dgv.Columns["MaPhong"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgv.Columns["MaPhong"].Width = (int)(totalWidth * 0.1);
 
             dgv.Columns["TenPhong"].HeaderText = "Tên Phòng";
             dgv.Columns["TenPhong"].Width = (int)(totalWidth * 0.2);
-            dgv.Columns["TenPhong"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             dgv.Columns["Loaiphong"].HeaderText = "Loại Phòng";
-            dgv.Columns["Loaiphong"].Width = (int)(totalWidth * 0.3);
-            dgv.Columns["Loaiphong"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgv.Columns["Loaiphong"].Width = (int)(totalWidth * 0.2);
 
             dgv.Columns["Tennha"].HeaderText = "Tên Nhà";
+            dgv.Columns["Tennha"].Width = (int)(totalWidth * 0.1);
             dgv.Columns["Tennha"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             dgv.Columns["Songuoidao"].HeaderText = "Số Người ở";
-            dgv.Columns["Songuoidao"].Width = (int)(totalWidth * 0.3);
+            dgv.Columns["Songuoidao"].Width = (int)(totalWidth * 0.2);
             dgv.Columns["Songuoidao"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            dgv.Columns["Songuoitoida"].HeaderText = "Số Người Tối Đa";
+            dgv.Columns["Songuoitoida"].Width = (int)(totalWidth * 0.2);
+            dgv.Columns["Songuoitoida"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
         private void CustomizeChuaDongTien(DataGridView dgv)
         {
@@ -640,6 +643,11 @@ namespace QlKyTucXa
                 var modal = new ChiTietHoaDon(MaHoaDonDaThanhToan);
                 modal.Show();
             }
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

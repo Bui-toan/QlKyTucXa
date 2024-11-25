@@ -5,48 +5,48 @@ using System.Windows.Forms;
 
 namespace QlKyTucXa
 {
-	public partial class Dashboard : Form
-	{
+    public partial class Dashboard : Form
+    {
         DataProcesser db = new DataProcesser();
         string sql = null;
 
         public Dashboard()
-		{
-			InitializeComponent();
-		}
+        {
+            InitializeComponent();
+        }
 
-		private void btnExit_Click(object sender, EventArgs e)
-		{
-			this.Close();
-		}
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
-		private void guna2HtmlLabel1_Click(object sender, EventArgs e)
-		{
+        private void guna2HtmlLabel1_Click(object sender, EventArgs e)
+        {
 
-		}
+        }
 
-		private void btnThemSv_Click(object sender, EventArgs e)
-		{
-			AddNewStudent addNewStudent = new AddNewStudent();
-			addNewStudent.Show();
-		}
+        private void btnThemSv_Click(object sender, EventArgs e)
+        {
+            AddNewStudent addNewStudent = new AddNewStudent();
+            addNewStudent.Show();
+        }
 
-		private void btnLogout_Click(object sender, EventArgs e)
-		{
-			var result = MessageBox.Show("Bạn có muốn thoát không?", "Xác nhận", MessageBoxButtons.YesNo);
-			if (result == DialogResult.Yes)
-			{
-				this.Close();
-				Login login = new Login();
-				login.Show();
-			}
-		}
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Bạn có muốn thoát không?", "Xác nhận", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+                Login login = new Login();
+                login.Show();
+            }
+        }
 
-		private void btnQlp_Click(object sender, EventArgs e)
-		{
-			AddNewRoom addNewRoom = new AddNewRoom();
-			addNewRoom.Show();
-		}
+        private void btnQlp_Click(object sender, EventArgs e)
+        {
+            AddNewRoom addNewRoom = new AddNewRoom();
+            addNewRoom.Show();
+        }
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
@@ -106,6 +106,12 @@ namespace QlKyTucXa
         {
             TraPhong traPhong = new TraPhong();
             traPhong.Show();
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            var qlHaDon = new QuanLyHoaDonPhong();
+            qlHaDon.Show();
         }
     }
 }

@@ -39,8 +39,8 @@ namespace QlKyTucXa
         private void SetUpHoaDon()
         {
             txt_MaHoaDon.Text = HoaDonService.GenerateMaHoaDon(maPhong, thang, nam);
-            txt_MaNhanVien.Text = "Development";
-            txt_TenNhanVien.Text = "Development Account";
+            txt_MaNhanVien.Text = UserInfor.MaNhanVien;
+            txt_TenNhanVien.Text = UserInfor.TenNhanVien;
             txt_Thang.Text = thang.ToString();
             txt_Nam.Text = nam.ToString();
 
