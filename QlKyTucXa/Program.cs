@@ -13,7 +13,7 @@ namespace QlKyTucXa
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new DanhSachPhongChuaDongTien());
+            Application.Run(new QuanLyHoaDonPhong());
         }
     }
 }
