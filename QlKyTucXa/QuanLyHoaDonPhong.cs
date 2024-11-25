@@ -13,6 +13,7 @@ namespace QlKyTucXa
     {
         private readonly DataAccess _dataAccess;
         private string MaPhong;
+        private string MaHoaDon;
         public QuanLyHoaDonPhong()
         {
             InitializeComponent();
@@ -23,7 +24,7 @@ namespace QlKyTucXa
         {
             LoadNam();
             LoadThang();
-            ReloadButton();
+            ReloadButtonChuaLapHoaDon();
 
             CustomizeDataGridView(dgv_ChuaLapHoaDon);
             CustomizeDataGridView(dgv_ChuaDongTien);
@@ -53,6 +54,9 @@ namespace QlKyTucXa
             dgv.Columns["Loaiphong"].HeaderText = "Loại Phòng";
             dgv.Columns["Loaiphong"].Width = (int)(totalWidth * 0.3);
             dgv.Columns["Loaiphong"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            dgv.Columns["Tennha"].HeaderText = "Tên Nhà";
+            dgv.Columns["Tennha"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             dgv.Columns["Songuoidao"].HeaderText = "Số Người ở";
             dgv.Columns["Songuoidao"].Width = (int)(totalWidth * 0.3);
@@ -175,7 +179,9 @@ namespace QlKyTucXa
         private object GetPhongDaThanhToan(int thang, int nam, string searchText = "")
         {
             string sql = "SELECT H.MaHoaDon, P.MaPhong, P.Tenphong, H.Ngaydong, " +
-                "(COALESCE(H.Tiendien, 0) + COALESCE(H.Tiennuoc, 0) + COALESCE(H.Tienvesinh, 0) + COALESCE(H.Tienphat, 0)) AS [TongTien] " +
+                "(COALESCE(H.Tiendien, 0) + COALESCE(H.Tiennuoc, 0) + COALESCE(H.Tienvesinh, 0) + " +
+                "COALESCE(H.Tienphat, 0) + COALESCE(P.Tienphong, 0)) " +
+                "AS [TongTien] " +
                 "FROM HoaDon H " +
                 "JOIN Phong P ON H.MaPhong = P.MaPhong " +
                 "WHERE H.Thang = @Thang AND H.Nam = @Nam AND H.TrangThai = 1 " +
@@ -197,11 +203,11 @@ namespace QlKyTucXa
         private object GetPhongChuaDongTien(int thang, int nam, string searchText = "")
         {
             string sql = "SELECT H.MaHoaDon, P.MaPhong, P.Tenphong, H.NgayTao," +
-                "(COALESCE(H.Tiendien, 0) + COALESCE(H.Tiennuoc, 0) + COALESCE(H.Tienvesinh, 0) + COALESCE(H.Tienphat, 0)) AS [TongTien] " +
+                "(COALESCE(H.Tiendien, 0) + COALESCE(H.Tiennuoc, 0) + COALESCE(H.Tienvesinh, 0) + COALESCE(H.Tienphat, 0) + COALESCE(P.Tienphong, 0)) AS [TongTien] " +
                 "FROM HoaDon H " +
                 "JOIN Phong P ON H.MaPhong = P.MaPhong " +
                 "WHERE H.Thang = @Thang AND H.Nam = @Nam AND H.TrangThai = 0 " +
-                (string.IsNullOrEmpty(searchText) ? "" : "AND (P.MaPhong LIKE @SearchText OR H.MaHoaDon LIKE @SearchText");
+                (string.IsNullOrEmpty(searchText) ? "" : "AND (P.MaPhong LIKE @SearchText OR H.MaHoaDon LIKE @SearchText)");
             var parameters = new List<SqlParameter>
             {
                 new SqlParameter("@Thang",thang),
@@ -237,7 +243,7 @@ namespace QlKyTucXa
         private void CustomizeDataGridView(Guna.UI2.WinForms.Guna2DataGridView dgv)
         {
             // Set header style
-            dgv.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 12, FontStyle.Bold);
+            dgv.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Arial", 12, FontStyle.Bold);
             dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(100, 88, 255); // Custom color
             dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             dgv.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -252,7 +258,7 @@ namespace QlKyTucXa
 
             // Set row style (optional)
             dgv.RowTemplate.Height = 30;
-            dgv.DefaultCellStyle.Font = new Font("Arial", 10);
+            dgv.DefaultCellStyle.Font = new System.Drawing.Font("Arial", 10);
             dgv.DefaultCellStyle.BackColor = Color.White;
             dgv.DefaultCellStyle.ForeColor = Color.Black;
             dgv.DefaultCellStyle.SelectionBackColor = Color.LightBlue;
@@ -279,10 +285,10 @@ namespace QlKyTucXa
             {
                 MaPhong = string.Empty;
             }
-            ReloadButton();
+            ReloadButtonChuaLapHoaDon();
         }
 
-        private void ReloadButton()
+        private void ReloadButtonChuaLapHoaDon()
         {
             if (!string.IsNullOrEmpty(MaPhong))
             {
@@ -291,6 +297,7 @@ namespace QlKyTucXa
             else
             {
                 btn_LapHoaDon.Enabled = false;
+                dgv_ChuaLapHoaDon.ClearSelection();
             }
         }
 
@@ -302,8 +309,9 @@ namespace QlKyTucXa
             modal.FormClosed += (s, eve) =>
             {
                 ReloadData(thang, nam);
+                MaPhong = string.Empty;
+                ReloadButtonChuaLapHoaDon();
             };
-
             modal.Show();
         }
 
@@ -419,7 +427,219 @@ namespace QlKyTucXa
 
         private void btn_CapNhatHoaDon_Click(object sender, EventArgs e)
         {
+            var modal = new CapNhatHoaDon(MaHoaDon);
+            int thang = int.Parse(cbThang.SelectedItem.ToString());
+            int nam = int.Parse(cbNam.SelectedItem.ToString());
+            modal.FormClosed += (s, eve) =>
+            {
+                ReloadData(thang, nam);
+                MaHoaDon = string.Empty;
+                ReloadButtonChuaLapHoaDon();
+            };
 
+            modal.Show();
+        }
+
+        private void dgv_ChuaDongTien_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (e.RowIndex != -1)
+            {
+                MaHoaDon = dgv_ChuaDongTien.Rows[e.RowIndex].Cells["MaHoaDon"].Value.ToString();
+            }
+            else
+            {
+                MaHoaDon = string.Empty;
+            }
+            ReloadButtonChuaDongTien();
+        }
+
+        private void ReloadButtonChuaDongTien()
+        {
+            if (!string.IsNullOrEmpty(MaHoaDon))
+            {
+                btn_CapNhatHoaDon.Enabled = true;
+            }
+            else
+            {
+                btn_CapNhatHoaDon.Enabled = false;
+                dgv_ChuaDongTien.ClearSelection();
+            }
+        }
+
+        private void btn_XuatDanhSachChuaThanhToan_Click(object sender, EventArgs e)
+        {
+            Excel.Application exApp = new Excel.Application();
+            Excel.Workbook exBook = exApp.Workbooks.Add(Excel.XlWBATemplate.xlWBATWorksheet);
+            Excel.Worksheet exSheet = (Excel.Worksheet)exBook.Worksheets[1];
+
+            exSheet.Range["A1"].Font.Size = 15;
+            exSheet.Range["A1"].Font.Bold = true;
+            exSheet.Range["A1"].Font.Color = Color.Green;
+            exSheet.Range["A1"].Value = "KÝ TÚC XÁ ĐH GIAO THÔNG VẬN TẢI";
+
+            Excel.Range dc = (Excel.Range)exSheet.Cells[2, 1];
+            dc.Font.Size = 13;
+            dc.Font.Color = Color.Blue;
+            dc.Value = "Số 99 - Nguyễn Chí Thanh - P.Láng Hạ - Q.Đống Đa - TP. Hà Nội";
+
+            exSheet.Range["D4"].Font.Size = 20;
+            exSheet.Range["D4"].Font.Bold = true;
+            exSheet.Range["D4"].Font.Color = Color.Red;
+            exSheet.Range["D4"].Value = "DANH SÁCH PHÒNG THANH TOÁN HÓA ĐƠN THÁNG " + int.Parse(cbThang.SelectedItem.ToString());
+
+            exSheet.Range["A6:F6"].Font.Size = 12;
+            exSheet.Range["A6:F6"].Font.Bold = true;
+
+            exSheet.Range["A6"].Value = "STT";
+
+            exSheet.Range["B6"].Value = "Mã Hóa Đơn";
+            exSheet.Range["B6"].ColumnWidth = 12;
+
+            exSheet.Range["C6"].Value = "Mã Phòng";
+            exSheet.Range["C6"].ColumnWidth = 12;
+
+            exSheet.Range["D6"].Value = "Tên Phòng";
+            exSheet.Range["D6"].ColumnWidth = 14;
+
+            exSheet.Range["E6"].Value = "Ngày Tạo Hóa Đơn";
+            exSheet.Range["E6"].ColumnWidth = 18;
+
+            exSheet.Range["F6"].Value = "Tổng Tiền Thanh Toán";
+            exSheet.Range["F6"].ColumnWidth = 13;
+
+            int row = 7;
+            decimal totalPrice = 0;
+            if (dgv_ChuaDongTien.Rows.Count > 0)
+            {
+                for (int i = 0; i < dgv_ChuaDongTien.Rows.Count; i++)
+                {
+                    exSheet.Range["A" + (row + i).ToString()].Value = (i + 1).ToString();
+                    exSheet.Range["B" + (row + i).ToString()].Value = dgv_ChuaDongTien.Rows[i].Cells[0].Value.ToString();
+                    exSheet.Range["C" + (row + i).ToString()].Value = dgv_ChuaDongTien.Rows[i].Cells[1].Value.ToString();
+                    exSheet.Range["D" + (row + i).ToString()].Value = dgv_ChuaDongTien.Rows[i].Cells[2].Value.ToString();
+                    exSheet.Range["E" + (row + i).ToString()].Value = ((DateTime)dgv_ChuaDongTien.Rows[i].Cells[3].Value).ToString("dd/MM/yyyy");
+                    exSheet.Range["F" + (row + i).ToString()].Value = dgv_ChuaDongTien.Rows[i].Cells[4].Value.ToString();
+                    totalPrice += decimal.Parse(dgv_ChuaDongTien.Rows[i].Cells[4].Value.ToString());
+                }
+                row += dgv_ChuaDongTien.Rows.Count;
+                exSheet.Range["F" + row.ToString()].Value = "Tổng Giá Trị: " + totalPrice.ToString("N0") + " VNĐ";
+            }
+            else
+            {
+                exSheet.Range["D7"].Value = "Không có phòng nào chưa lập hóa đơn trong tháng " + int.Parse(cbThang.SelectedItem.ToString());
+            }
+            exSheet.Name = "Danh Sach Thang " + int.Parse(cbThang.SelectedItem.ToString());
+            exBook.Activate();
+
+            // Lưu file 
+            SaveFileDialog save = new SaveFileDialog();
+            save.Filter = "Exel 97-2002 Workbook|*.xls|Excel Workbook|*.xlsx|All Files|*.*";
+            save.FilterIndex = 2;
+            if (save.ShowDialog() == DialogResult.OK)
+            {
+                exBook.SaveAs(save.FileName.ToLower());
+            }
+            exApp.Quit();
+        }
+
+        private void btn_XuatHoaDonDaThanhToan_Click(object sender, EventArgs e)
+        {
+            Excel.Application exApp = new Excel.Application();
+            Excel.Workbook exBook = exApp.Workbooks.Add(Excel.XlWBATemplate.xlWBATWorksheet);
+            Excel.Worksheet exSheet = (Excel.Worksheet)exBook.Worksheets[1];
+
+            exSheet.Range["A1"].Font.Size = 15;
+            exSheet.Range["A1"].Font.Bold = true;
+            exSheet.Range["A1"].Font.Color = Color.Green;
+            exSheet.Range["A1"].Value = "KÝ TÚC XÁ ĐH GIAO THÔNG VẬN TẢI";
+
+            Excel.Range dc = (Excel.Range)exSheet.Cells[2, 1];
+            dc.Font.Size = 13;
+            dc.Font.Color = Color.Blue;
+            dc.Value = "Số 99 - Nguyễn Chí Thanh - P.Láng Hạ - Q.Đống Đa - TP. Hà Nội";
+
+            exSheet.Range["C4"].Font.Size = 20;
+            exSheet.Range["C4"].Font.Bold = true;
+            exSheet.Range["C4"].Font.Color = Color.Red;
+            exSheet.Range["C4"].Value = "DANH SÁCH PHÒNG ĐÃ THANH TOÁN HÓA ĐƠN THÁNG " + int.Parse(cbThang.SelectedItem.ToString());
+
+            exSheet.Range["A6:F6"].Font.Size = 12;
+            exSheet.Range["A6:F6"].Font.Bold = true;
+
+            exSheet.Range["A6"].Value = "STT";
+
+            exSheet.Range["B6"].Value = "Mã Hóa Đơn";
+            exSheet.Range["B6"].ColumnWidth = 12;
+
+            exSheet.Range["C6"].Value = "Mã Phòng";
+            exSheet.Range["C6"].ColumnWidth = 12;
+
+            exSheet.Range["D6"].Value = "Tên Phòng";
+            exSheet.Range["D6"].ColumnWidth = 14;
+
+            exSheet.Range["E6"].Value = "Ngày Thanh Toán";
+            exSheet.Range["E6"].ColumnWidth = 18;
+
+            exSheet.Range["F6"].Value = "Tổng Tiền Thanh Toán";
+            exSheet.Range["F6"].ColumnWidth = 13;
+
+            int row = 7;
+            decimal totalPrice = 0;
+            if (dgv_DaThanhToan.Rows.Count > 0)
+            {
+                for (int i = 0; i < dgv_DaThanhToan.Rows.Count; i++)
+                {
+                    exSheet.Range["A" + (row + i).ToString()].Value = (i + 1).ToString();
+                    exSheet.Range["B" + (row + i).ToString()].Value = dgv_DaThanhToan.Rows[i].Cells[0].Value.ToString();
+                    exSheet.Range["C" + (row + i).ToString()].Value = dgv_DaThanhToan.Rows[i].Cells[1].Value.ToString();
+                    exSheet.Range["D" + (row + i).ToString()].Value = dgv_DaThanhToan.Rows[i].Cells[2].Value.ToString();
+                    exSheet.Range["E" + (row + i).ToString()].Value = ((DateTime)dgv_DaThanhToan.Rows[i].Cells[3].Value).ToString("dd/MM/yyyy");
+                    exSheet.Range["F" + (row + i).ToString()].Value = dgv_DaThanhToan.Rows[i].Cells[4].Value.ToString();
+                    totalPrice += decimal.Parse(dgv_DaThanhToan.Rows[i].Cells[4].Value.ToString());
+                }
+                row += dgv_DaThanhToan.Rows.Count;
+                exSheet.Range["F" + row.ToString()].Value = "Tổng Giá Trị: " + totalPrice.ToString("N0") + " VNĐ";
+            }
+            else
+            {
+                exSheet.Range["D7"].Value = "Không có phòng nào chưa lập hóa đơn trong tháng " + int.Parse(cbThang.SelectedItem.ToString());
+            }
+            exSheet.Name = "Danh Sach Thang " + int.Parse(cbThang.SelectedItem.ToString());
+            exBook.Activate();
+
+            // Lưu file 
+            SaveFileDialog save = new SaveFileDialog();
+            save.Filter = "Exel 97-2002 Workbook|*.xls|Excel Workbook|*.xlsx|All Files|*.*";
+            save.FilterIndex = 2;
+            if (save.ShowDialog() == DialogResult.OK)
+            {
+                exBook.SaveAs(save.FileName.ToLower());
+            }
+            exApp.Quit();
+        }
+
+        private void dgv_DaThanhToan_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                btn_XemChiTiet.Enabled = true;
+            }
+            else
+            {
+                btn_XemChiTiet.Enabled = false;
+            }
+        }
+
+        private void btn_XemChiTiet_Click(object sender, EventArgs e)
+        {
+            if (dgv_DaThanhToan.CurrentRow != null)
+            {
+                var selectedRow = dgv_DaThanhToan.CurrentRow;
+                var MaHoaDonDaThanhToan = selectedRow.Cells["MaHoaDon"].Value.ToString();
+                var modal = new ChiTietHoaDon(MaHoaDonDaThanhToan);
+                modal.Show();
+            }
         }
     }
 }

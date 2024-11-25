@@ -68,6 +68,18 @@
     <Compile Include="AddNewStudent.Designer.cs">
       <DependentUpon>AddNewStudent.cs</DependentUpon>
     </Compile>
+    <Compile Include="CapNhatHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapNhatHoaDon.Designer.cs">
+      <DependentUpon>CapNhatHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChiTietHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChiTietHoaDon.Designer.cs">
+      <DependentUpon>ChiTietHoaDon.cs</DependentUpon>
+    </Compile>
     <Compile Include="Classes\DataProcesser.cs" />
     <Compile Include="DAO\DataAccess.cs" />
     <Compile Include="Dashboard.cs">
@@ -122,6 +134,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddNewStudent.resx">
       <DependentUpon>AddNewStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapNhatHoaDon.resx">
+      <DependentUpon>CapNhatHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChiTietHoaDon.resx">
+      <DependentUpon>ChiTietHoaDon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>

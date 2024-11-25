@@ -1,4 +1,5 @@
-﻿using QlKyTucXa.DAO;
+﻿using Guna.UI2.WinForms;
+using QlKyTucXa.DAO;
 using QlKyTucXa.Models;
 using QlKyTucXa.Singleton;
 using QlKyTucXa.Utils;
@@ -6,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Text;
 using System.Windows.Forms;
 
 namespace QlKyTucXa
@@ -109,19 +111,19 @@ namespace QlKyTucXa
             decimal tongTien = 0;
             if (!string.IsNullOrEmpty(txt_TienPhong.Text))
             {
-                tongTien += Decimal.Parse(txt_TienPhong.Text);
+                tongTien += decimal.Parse(txt_TienPhong.Text);
             }
             if (!string.IsNullOrEmpty(txt_TienDien.Text))
             {
-                tongTien += Decimal.Parse(txt_TienDien.Text);
+                tongTien += decimal.Parse(txt_TienDien.Text);
             }
             if (!string.IsNullOrEmpty(txt_TienNuoc.Text))
             {
-                tongTien += Decimal.Parse(txt_TienNuoc.Text);
+                tongTien += decimal.Parse(txt_TienNuoc.Text);
             }
             if (!string.IsNullOrEmpty(txt_TienVeSinh.Text))
             {
-                tongTien += Decimal.Parse(txt_TienVeSinh.Text);
+                tongTien += decimal.Parse(txt_TienVeSinh.Text);
             }
             lbl_TongTien.Text = CurrencyFormatter.FormatCurrency(tongTien);
         }
@@ -140,12 +142,26 @@ namespace QlKyTucXa
 
         private void txt_Tien_Leave(object sender, EventArgs e)
         {
+            Guna2TextBox textBox = (Guna2TextBox)sender;
+            if (string.IsNullOrEmpty(textBox.Text))
+            {
+                textBox.BorderColor = Color.Red;
+            }
+            else
+            {
+                textBox.BorderColor = Color.LightGray;
+            }
             calcTongTien();
         }
 
         private void btn_addHoaDon_Click(object sender, EventArgs e)
         {
-            if (!IsHoaDonValid()) return;
+            string validationResult = ValidateHoaDon();
+            if (!string.IsNullOrEmpty(validationResult))
+            {
+                MessageBox.Show(validationResult, "Lỗi Nhập dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             setHoaDon();
             var sql = "INSERT INTO HoaDon(MaHoaDon,Thang,Nam,MaPhong,Tiendien,Tiennuoc," +
                 "Tienvesinh,NgayTao,Ngaydong,TrangThai) " +
@@ -166,35 +182,53 @@ namespace QlKyTucXa
             var result = _dataAccess.ExecuteNonQuery(sql, parameters);
             if (result)
             {
-                var dialog = MessageBox.Show("Tạo Hóa đơn thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Tạo Hóa đơn thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
             }
         }
 
-        private bool IsHoaDonValid()
+        private string ValidateHoaDon()
         {
-            bool isValid = true;
+            StringBuilder errorMessage = new StringBuilder();
             if (string.IsNullOrEmpty(txt_TienDien.Text))
             {
                 txt_TienDien.BorderColor = Color.Red;
-                isValid = false;
+                errorMessage.AppendLine("Tiền điện không được để trống.");
+            }
+            else
+            {
+                txt_TienDien.BorderColor = Color.LightGray;
             }
             if (string.IsNullOrEmpty(txt_TienNuoc.Text))
             {
                 txt_TienNuoc.BorderColor = Color.Red;
-                isValid = false;
+                errorMessage.AppendLine("Tiền nước không được để trống.");
             }
+            else
+            {
+                txt_TienNuoc.BorderColor = Color.LightGray; // Reset to default
+            }
+
             if (string.IsNullOrEmpty(txt_TienVeSinh.Text))
             {
                 txt_TienVeSinh.BorderColor = Color.Red;
-                isValid = false;
+                errorMessage.AppendLine("Tiền vệ sinh không được để trống.");
             }
+            else
+            {
+                txt_TienVeSinh.BorderColor = Color.LightGray; // Reset to default
+            }
+
             if (string.IsNullOrEmpty(txt_SoDien.Text))
             {
                 txt_SoDien.BorderColor = Color.Red;
-                isValid = false;
+                errorMessage.AppendLine("Số điện không được để trống.");
             }
-            return isValid;
+            else
+            {
+                txt_SoDien.BorderColor = Color.LightGray;
+            }
+            return errorMessage.ToString();
         }
 
         private void setHoaDon()

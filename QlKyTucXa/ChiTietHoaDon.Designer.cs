@@ -1,6 +1,6 @@
 ﻿namespace QlKyTucXa
 {
-    partial class CapNhatHoaDon
+    partial class ChiTietHoaDon
     {
         /// <summary>
         /// Required designer variable.
@@ -65,8 +65,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txt_TenPhong = new Guna.UI2.WinForms.Guna2TextBox();
             this.txt_TienPhong = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btn_UpdateHoaDon = new Guna.UI2.WinForms.Guna2Button();
-            this.btn_CancelUpdateHoaDon = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_ExportHoaDon = new Guna.UI2.WinForms.Guna2Button();
             this.gb_ThongTin.SuspendLayout();
             this.guna2GroupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -75,11 +74,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(431, 9);
+            this.label2.Location = new System.Drawing.Point(460, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(251, 38);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Cập Nhật Hóa Đơn";
+            this.label2.Size = new System.Drawing.Size(230, 38);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Chi Tiết Hóa Đơn";
             // 
             // gb_ThongTin
             // 
@@ -100,10 +99,10 @@
             this.gb_ThongTin.Controls.Add(this.txt_MaHoaDon);
             this.gb_ThongTin.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.gb_ThongTin.ForeColor = System.Drawing.Color.Black;
-            this.gb_ThongTin.Location = new System.Drawing.Point(57, 61);
+            this.gb_ThongTin.Location = new System.Drawing.Point(87, 59);
             this.gb_ThongTin.Name = "gb_ThongTin";
             this.gb_ThongTin.Size = new System.Drawing.Size(1030, 251);
-            this.gb_ThongTin.TabIndex = 11;
+            this.gb_ThongTin.TabIndex = 12;
             this.gb_ThongTin.Text = "Thông tin chung";
             this.gb_ThongTin.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             // 
@@ -197,6 +196,7 @@
             this.cb_TrangThai.BackColor = System.Drawing.Color.Transparent;
             this.cb_TrangThai.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cb_TrangThai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_TrangThai.Enabled = false;
             this.cb_TrangThai.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cb_TrangThai.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cb_TrangThai.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -340,10 +340,10 @@
             this.guna2GroupBox1.Controls.Add(this.txt_TienPhong);
             this.guna2GroupBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2GroupBox1.ForeColor = System.Drawing.Color.Black;
-            this.guna2GroupBox1.Location = new System.Drawing.Point(57, 341);
+            this.guna2GroupBox1.Location = new System.Drawing.Point(87, 338);
             this.guna2GroupBox1.Name = "guna2GroupBox1";
             this.guna2GroupBox1.Size = new System.Drawing.Size(1030, 275);
-            this.guna2GroupBox1.TabIndex = 30;
+            this.guna2GroupBox1.TabIndex = 31;
             this.guna2GroupBox1.Text = "Thông tin phòng";
             // 
             // lbl_TongTien
@@ -406,6 +406,7 @@
             this.txt_TienVeSinh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txt_TienVeSinh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_TienVeSinh.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_TienVeSinh.Enabled = false;
             this.txt_TienVeSinh.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_TienVeSinh.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_TienVeSinh.ForeColor = System.Drawing.Color.Black;
@@ -415,12 +416,10 @@
             this.txt_TienVeSinh.Name = "txt_TienVeSinh";
             this.txt_TienVeSinh.PasswordChar = '\0';
             this.txt_TienVeSinh.PlaceholderText = "";
+            this.txt_TienVeSinh.ReadOnly = true;
             this.txt_TienVeSinh.SelectedText = "";
             this.txt_TienVeSinh.Size = new System.Drawing.Size(129, 36);
             this.txt_TienVeSinh.TabIndex = 40;
-            this.txt_TienVeSinh.TextChanged += new System.EventHandler(this.txt_TienVeSinh_TextChanged);
-            this.txt_TienVeSinh.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Tien_KeyPress);
-            this.txt_TienVeSinh.Leave += new System.EventHandler(this.txt_box_Leave);
             // 
             // label8
             // 
@@ -439,6 +438,7 @@
             this.txt_TienNuoc.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txt_TienNuoc.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_TienNuoc.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_TienNuoc.Enabled = false;
             this.txt_TienNuoc.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_TienNuoc.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_TienNuoc.ForeColor = System.Drawing.Color.Black;
@@ -448,12 +448,10 @@
             this.txt_TienNuoc.Name = "txt_TienNuoc";
             this.txt_TienNuoc.PasswordChar = '\0';
             this.txt_TienNuoc.PlaceholderText = "";
+            this.txt_TienNuoc.ReadOnly = true;
             this.txt_TienNuoc.SelectedText = "";
             this.txt_TienNuoc.Size = new System.Drawing.Size(129, 36);
             this.txt_TienNuoc.TabIndex = 39;
-            this.txt_TienNuoc.TextChanged += new System.EventHandler(this.txt_TienNuoc_TextChanged);
-            this.txt_TienNuoc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Tien_KeyPress);
-            this.txt_TienNuoc.Leave += new System.EventHandler(this.txt_box_Leave);
             // 
             // label7
             // 
@@ -565,6 +563,7 @@
             this.txt_SoDien.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txt_SoDien.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_SoDien.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_SoDien.Enabled = false;
             this.txt_SoDien.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_SoDien.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_SoDien.ForeColor = System.Drawing.Color.Black;
@@ -574,12 +573,10 @@
             this.txt_SoDien.Name = "txt_SoDien";
             this.txt_SoDien.PasswordChar = '\0';
             this.txt_SoDien.PlaceholderText = "";
+            this.txt_SoDien.ReadOnly = true;
             this.txt_SoDien.SelectedText = "";
             this.txt_SoDien.Size = new System.Drawing.Size(142, 36);
             this.txt_SoDien.TabIndex = 29;
-            this.txt_SoDien.TextChanged += new System.EventHandler(this.txt_SoDien_TextChange);
-            this.txt_SoDien.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Tien_KeyPress);
-            this.txt_SoDien.Leave += new System.EventHandler(this.txt_box_Leave);
             // 
             // txt_SoNguoiDaO
             // 
@@ -657,52 +654,35 @@
             this.txt_TienPhong.Size = new System.Drawing.Size(141, 36);
             this.txt_TienPhong.TabIndex = 27;
             // 
-            // btn_UpdateHoaDon
+            // btn_ExportHoaDon
             // 
-            this.btn_UpdateHoaDon.BackColor = System.Drawing.Color.White;
-            this.btn_UpdateHoaDon.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_UpdateHoaDon.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_UpdateHoaDon.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_UpdateHoaDon.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_UpdateHoaDon.FillColor = System.Drawing.Color.Lime;
-            this.btn_UpdateHoaDon.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_UpdateHoaDon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.btn_UpdateHoaDon.Location = new System.Drawing.Point(292, 664);
-            this.btn_UpdateHoaDon.Name = "btn_UpdateHoaDon";
-            this.btn_UpdateHoaDon.Size = new System.Drawing.Size(180, 45);
-            this.btn_UpdateHoaDon.TabIndex = 45;
-            this.btn_UpdateHoaDon.Text = "Cập nhật hóa đơn";
-            this.btn_UpdateHoaDon.Click += new System.EventHandler(this.btn_UpdateHoaDon_Click);
+            this.btn_ExportHoaDon.BackColor = System.Drawing.Color.White;
+            this.btn_ExportHoaDon.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_ExportHoaDon.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_ExportHoaDon.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_ExportHoaDon.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_ExportHoaDon.FillColor = System.Drawing.Color.Lime;
+            this.btn_ExportHoaDon.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_ExportHoaDon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btn_ExportHoaDon.Location = new System.Drawing.Point(480, 644);
+            this.btn_ExportHoaDon.Name = "btn_ExportHoaDon";
+            this.btn_ExportHoaDon.Size = new System.Drawing.Size(180, 45);
+            this.btn_ExportHoaDon.TabIndex = 46;
+            this.btn_ExportHoaDon.Text = "Xuất hóa đơn";
+            this.btn_ExportHoaDon.Click += new System.EventHandler(this.btn_ExportHoaDon_Click);
             // 
-            // btn_CancelUpdateHoaDon
-            // 
-            this.btn_CancelUpdateHoaDon.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_CancelUpdateHoaDon.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_CancelUpdateHoaDon.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_CancelUpdateHoaDon.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_CancelUpdateHoaDon.FillColor = System.Drawing.Color.Red;
-            this.btn_CancelUpdateHoaDon.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_CancelUpdateHoaDon.ForeColor = System.Drawing.Color.White;
-            this.btn_CancelUpdateHoaDon.Location = new System.Drawing.Point(622, 664);
-            this.btn_CancelUpdateHoaDon.Name = "btn_CancelUpdateHoaDon";
-            this.btn_CancelUpdateHoaDon.Size = new System.Drawing.Size(180, 45);
-            this.btn_CancelUpdateHoaDon.TabIndex = 46;
-            this.btn_CancelUpdateHoaDon.Text = "Hủy hóa đơn";
-            this.btn_CancelUpdateHoaDon.Click += new System.EventHandler(this.btn_CancelUpdateHoaDon_Click);
-            // 
-            // CapNhatHoaDon
+            // ChiTietHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1159, 782);
-            this.Controls.Add(this.btn_CancelUpdateHoaDon);
-            this.Controls.Add(this.btn_UpdateHoaDon);
+            this.Controls.Add(this.btn_ExportHoaDon);
             this.Controls.Add(this.guna2GroupBox1);
             this.Controls.Add(this.gb_ThongTin);
             this.Controls.Add(this.label2);
-            this.Name = "CapNhatHoaDon";
-            this.Text = "CapNhatHoaDon";
-            this.Load += new System.EventHandler(this.CapNhatHoaDon_Load);
+            this.Name = "ChiTietHoaDon";
+            this.Text = "ChiTietHoaDon";
+            this.Load += new System.EventHandler(this.ChiTietHoaDon_Load);
             this.gb_ThongTin.ResumeLayout(false);
             this.gb_ThongTin.PerformLayout();
             this.guna2GroupBox1.ResumeLayout(false);
@@ -751,7 +731,6 @@
         private System.Windows.Forms.Label label10;
         private Guna.UI2.WinForms.Guna2TextBox txt_TenPhong;
         private Guna.UI2.WinForms.Guna2TextBox txt_TienPhong;
-        private Guna.UI2.WinForms.Guna2Button btn_UpdateHoaDon;
-        private Guna.UI2.WinForms.Guna2Button btn_CancelUpdateHoaDon;
+        private Guna.UI2.WinForms.Guna2Button btn_ExportHoaDon;
     }
 }

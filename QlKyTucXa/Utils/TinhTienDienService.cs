@@ -1,6 +1,6 @@
 ﻿namespace QlKyTucXa.Utils
 {
-    public class TinhTienDienService
+    public static class TinhTienDienService
     {
         public static decimal Calc(string soDien)
         {
@@ -35,6 +35,41 @@
             }
 
             return total;
+        }
+        public static int GetSoDien(decimal tienDien)
+        {
+            if (tienDien <= 0)
+            {
+                return 0;
+            }
+
+            int[] thresholds = { 50, 50, 100, 100, 100 }; // kWh limits for each tier
+            decimal[] rates = { 1678m, 1734m, 2014m, 2536m, 2834m, 2927m }; // Rate per kWh for each tier
+
+            decimal totalCost = 0;
+            int totalKwh = 0;
+
+            for (int i = 0; i < thresholds.Length; i++)
+            {
+                int maxKwh = thresholds[i];
+                decimal rate = rates[i];
+
+                decimal tierCost = maxKwh * rate;
+
+                if (tienDien <= totalCost + tierCost)
+                {
+                    int remainingKwh = (int)((tienDien - totalCost) / rate);
+                    totalKwh += remainingKwh;
+                    return totalKwh;
+                }
+
+                totalCost += tierCost;
+                totalKwh += maxKwh;
+            }
+
+            // For kWh above 400
+            totalKwh += (int)((tienDien - totalCost) / rates[rates.Length - 1]);
+            return totalKwh;
         }
     }
 }

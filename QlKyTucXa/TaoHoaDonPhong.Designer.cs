@@ -116,6 +116,7 @@
             this.txt_Nam.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_Nam.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_Nam.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_Nam.ForeColor = System.Drawing.Color.Black;
             this.txt_Nam.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_Nam.Location = new System.Drawing.Point(537, 159);
             this.txt_Nam.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -136,6 +137,7 @@
             this.txt_Thang.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_Thang.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_Thang.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_Thang.ForeColor = System.Drawing.Color.Black;
             this.txt_Thang.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_Thang.Location = new System.Drawing.Point(537, 116);
             this.txt_Thang.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -184,7 +186,7 @@
             this.cb_TrangThai.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cb_TrangThai.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cb_TrangThai.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cb_TrangThai.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cb_TrangThai.ForeColor = System.Drawing.Color.Black;
             this.cb_TrangThai.ItemHeight = 30;
             this.cb_TrangThai.Location = new System.Drawing.Point(537, 57);
             this.cb_TrangThai.Name = "cb_TrangThai";
@@ -245,6 +247,7 @@
             this.txt_TenNhanVien.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_TenNhanVien.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_TenNhanVien.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_TenNhanVien.ForeColor = System.Drawing.Color.Black;
             this.txt_TenNhanVien.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_TenNhanVien.Location = new System.Drawing.Point(127, 187);
             this.txt_TenNhanVien.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -265,6 +268,7 @@
             this.txt_MaNhanVien.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_MaNhanVien.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_MaNhanVien.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_MaNhanVien.ForeColor = System.Drawing.Color.Black;
             this.txt_MaNhanVien.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_MaNhanVien.Location = new System.Drawing.Point(127, 143);
             this.txt_MaNhanVien.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -285,6 +289,7 @@
             this.txt_MaHoaDon.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_MaHoaDon.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_MaHoaDon.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_MaHoaDon.ForeColor = System.Drawing.Color.Black;
             this.txt_MaHoaDon.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_MaHoaDon.Location = new System.Drawing.Point(127, 57);
             this.txt_MaHoaDon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -342,6 +347,7 @@
             this.txt_SoNguoiToiDa.Enabled = false;
             this.txt_SoNguoiToiDa.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_SoNguoiToiDa.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_SoNguoiToiDa.ForeColor = System.Drawing.Color.Black;
             this.txt_SoNguoiToiDa.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_SoNguoiToiDa.Location = new System.Drawing.Point(186, 194);
             this.txt_SoNguoiToiDa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -363,6 +369,7 @@
             this.txt_SoNguoiDaO.Enabled = false;
             this.txt_SoNguoiDaO.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_SoNguoiDaO.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_SoNguoiDaO.ForeColor = System.Drawing.Color.Black;
             this.txt_SoNguoiDaO.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_SoNguoiDaO.Location = new System.Drawing.Point(186, 150);
             this.txt_SoNguoiDaO.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -384,6 +391,7 @@
             this.txt_TenPhong.Enabled = false;
             this.txt_TenPhong.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_TenPhong.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_TenPhong.ForeColor = System.Drawing.Color.Black;
             this.txt_TenPhong.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_TenPhong.Location = new System.Drawing.Point(186, 106);
             this.txt_TenPhong.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -457,6 +465,7 @@
             this.txt_MaPhong.Enabled = false;
             this.txt_MaPhong.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_MaPhong.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_MaPhong.ForeColor = System.Drawing.Color.Black;
             this.txt_MaPhong.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_MaPhong.Location = new System.Drawing.Point(186, 62);
             this.txt_MaPhong.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -469,6 +478,7 @@
             // 
             // txt_TienVeSinh
             // 
+            this.txt_TienVeSinh.BorderColor = System.Drawing.Color.LightGray;
             this.txt_TienVeSinh.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_TienVeSinh.DefaultText = "";
             this.txt_TienVeSinh.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -477,6 +487,7 @@
             this.txt_TienVeSinh.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_TienVeSinh.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_TienVeSinh.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_TienVeSinh.ForeColor = System.Drawing.Color.Black;
             this.txt_TienVeSinh.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_TienVeSinh.Location = new System.Drawing.Point(823, 107);
             this.txt_TienVeSinh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -500,6 +511,7 @@
             this.txt_TienNuoc.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_TienNuoc.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_TienNuoc.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_TienNuoc.ForeColor = System.Drawing.Color.Black;
             this.txt_TienNuoc.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_TienNuoc.Location = new System.Drawing.Point(823, 64);
             this.txt_TienNuoc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -554,6 +566,7 @@
             this.txt_TienDien.Enabled = false;
             this.txt_TienDien.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_TienDien.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_TienDien.ForeColor = System.Drawing.Color.Black;
             this.txt_TienDien.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_TienDien.Location = new System.Drawing.Point(579, 150);
             this.txt_TienDien.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -585,6 +598,7 @@
             this.txt_SoDien.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txt_SoDien.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_SoDien.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_SoDien.ForeColor = System.Drawing.Color.Black;
             this.txt_SoDien.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_SoDien.Location = new System.Drawing.Point(579, 107);
             this.txt_SoDien.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -619,6 +633,7 @@
             this.txt_TienPhong.Enabled = false;
             this.txt_TienPhong.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_TienPhong.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_TienPhong.ForeColor = System.Drawing.Color.Black;
             this.txt_TienPhong.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_TienPhong.Location = new System.Drawing.Point(580, 64);
             this.txt_TienPhong.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
