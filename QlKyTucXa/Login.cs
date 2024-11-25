@@ -1,132 +1,132 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
-using System.Windows.Forms;
 using System.Timers;
-using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace QlKyTucXa
 {
-    public partial class Login : Form
-    {
-        private List<string> imagePaths = new List<string>(); // Danh sách lưu trữ đường dẫn ảnh
-        private int imageIndex = 0;
-        private System.Timers.Timer imageSliderTimer;
-        private Classes.DataProcesser dtBase = new Classes.DataProcesser();
+	public partial class Login : Form
+	{
+		private List<string> imagePaths = new List<string>(); // Danh sách lưu trữ đường dẫn ảnh
+		private int imageIndex = 0;
+		private System.Timers.Timer imageSliderTimer;
+		private Classes.DataProcesser dtBase = new Classes.DataProcesser();
 
-        public Login()
-        {
-            InitializeComponent();
-            SetupForm();
-            LoadImagesFromFolder();
-            StartImageSlider();
-        }
+		public Login()
+		{
+			InitializeComponent();
+			SetupForm();
+			/*   LoadImagesFromFolder();*/
+			StartImageSlider();
+		}
 
-        // Cấu hình form, cho phép co giãn
-        private void SetupForm()
-        {
-            this.FormBorderStyle = FormBorderStyle.Sizable;
-            this.MinimumSize = new Size(400, 300); // Kích thước tối thiểu
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-        }
+		// Cấu hình form, cho phép co giãn
+		private void SetupForm()
+		{
+			this.FormBorderStyle = FormBorderStyle.Sizable;
+			this.MinimumSize = new Size(400, 300); // Kích thước tối thiểu
+			pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+		}
 
-        // Load hình ảnh từ thư mục
-        private void LoadImagesFromFolder()
-        {
-            imagePaths.Add(@"C:\LTTQ_BTL\QlKyTucXa\image1.png");
-            imagePaths.Add(@"C:\LTTQ_BTL\QlKyTucXa\image2.png");
-            imagePaths.Add(@"C:\LTTQ_BTL\QlKyTucXa\image3.png");
+		// Load hình ảnh từ thư mục
+		private void LoadImagesFromFolder()
+		{
+			imagePaths.Add(@".\image\image1.png");
+			imagePaths.Add(@".\image\image2.png");
+			imagePaths.Add(@".\image\image3.png");
 
-            // Hiển thị ảnh đầu tiên nếu có ảnh trong thư mục
-            if (imagePaths.Count > 0)
-            {
-                pictureBox1.Image = Image.FromFile(imagePaths[0]);
-            }
-            else
-            {
-                MessageBox.Show("Không tìm thấy ảnh trong thư mục.");
-            }
-        }
+			// Hiển thị ảnh đầu tiên nếu có ảnh trong thư mục
+			if (imagePaths.Count > 0)
+			{
+				pictureBox1.Image = Image.FromFile(imagePaths[0]);
+			}
+			else
+			{
+				MessageBox.Show("Không tìm thấy ảnh trong thư mục.");
+			}
+		}
 
-        // Bắt đầu trình chiếu ảnh tự động
-        private void StartImageSlider()
-        {
-            imageSliderTimer = new System.Timers.Timer(2000); // Chuyển ảnh mỗi 2 giây
-            imageSliderTimer.Elapsed += OnTimedEvent;
-            imageSliderTimer.AutoReset = true;
-            imageSliderTimer.Enabled = true;
-        }
+		// Bắt đầu trình chiếu ảnh tự động
+		private void StartImageSlider()
+		{
+			imageSliderTimer = new System.Timers.Timer(2000); // Chuyển ảnh mỗi 2 giây
+			imageSliderTimer.Elapsed += OnTimedEvent;
+			imageSliderTimer.AutoReset = true;
+			imageSliderTimer.Enabled = true;
+		}
 
-        // Hàm xử lý khi đến giờ đổi ảnh
-        private void OnTimedEvent(object source, ElapsedEventArgs e)
-        {
-            if (imagePaths.Count > 0)
-            {
-                imageIndex = (imageIndex + 1) % imagePaths.Count;
+		// Hàm xử lý khi đến giờ đổi ảnh
+		private void OnTimedEvent(object source, ElapsedEventArgs e)
+		{
+			if (imagePaths.Count > 0)
+			{
+				imageIndex = (imageIndex + 1) % imagePaths.Count;
 
-                // Giải phóng ảnh cũ trước khi tải ảnh mới
-                if (pictureBox1.Image != null)
-                {
-                    pictureBox1.Image.Dispose();
-                }
+				// Giải phóng ảnh cũ trước khi tải ảnh mới
+				if (pictureBox1.Image != null)
+				{
+					pictureBox1.Image.Dispose();
+				}
 
-                try
-                {
-                    // Tải và hiển thị ảnh mới từ danh sách
-                    pictureBox1.Image = Image.FromFile(imagePaths[imageIndex]);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Không thể tải ảnh: " + ex.Message);
-                }
-            }
-        }
+				try
+				{
+					// Tải và hiển thị ảnh mới từ danh sách
+					pictureBox1.Image = Image.FromFile(imagePaths[imageIndex]);
+				}
+				catch (Exception ex)
+				{
+					MessageBox.Show("Không thể tải ảnh: " + ex.Message);
+				}
+			}
+		}
 
-        // Xử lý sự kiện đăng nhập
-        private void btnLogin_Click(object sender, EventArgs e)
-        {
-            string username = txtUsername.Text;
-            string password = txtPassword.Text;
+		// Xử lý sự kiện đăng nhập
+		private void btnLogin_Click(object sender, EventArgs e)
+		{
+			string username = txtUsername.Text;
+			string password = txtPassword.Text;
 
-            string query = $"SELECT * FROM Users WHERE MaNhanVien = '{username}' AND Password = '{password}'";
-            DataTable dt = dtBase.ReadData(query);
+			string query = $"SELECT * FROM Users WHERE MaNhanVien = '{username}' AND Password = '{password}'";
+			DataTable dt = dtBase.ReadData(query);
 
-            if (dt.Rows.Count > 0)
-            {
-                string maNhanVien = dt.Rows[0]["MaNhanVien"].ToString();
-                string tenNhanVien = dt.Rows[0]["TenNhanVien"].ToString();
+			if (dt.Rows.Count > 0)
+			{
+				string maNhanVien = dt.Rows[0]["MaNhanVien"].ToString();
+				string tenNhanVien = dt.Rows[0]["TenNhanVien"].ToString();
 
-                // Ẩn form đăng nhập và mở Dashboard
-                this.Hide();
-                Dashboard dashboard = new Dashboard();
-                dashboard.Show();
-               
-            }
-            else
-            {
-                MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng.");
-            }
-        }
+				// Ẩn form đăng nhập và mở Dashboard
+				this.Hide();
+				Dashboard dashboard = new Dashboard();
+				dashboard.Show();
 
-        // Xử lý sự kiện điều chỉnh kích thước form
-        private void FormLogin_Resize(object sender, EventArgs e)
-        {
-            txtUsername.Width = this.ClientSize.Width - 100;
-            txtPassword.Width = this.ClientSize.Width - 100;
-            btnLogin.Location = new Point((this.ClientSize.Width - btnLogin.Width) / 2, btnLogin.Location.Y);
-        }
+			}
+			else
+			{
+				MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng.");
+			}
+		}
 
-        // Xử lý sự kiện đóng ứng dụng
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-            this.Close();
-        }
+		// Xử lý sự kiện điều chỉnh kích thước form
+		private void FormLogin_Resize(object sender, EventArgs e)
+		{
+			txtUsername.Width = this.ClientSize.Width - 100;
+			txtPassword.Width = this.ClientSize.Width - 100;
+			btnLogin.Location = new Point((this.ClientSize.Width - btnLogin.Width) / 2, btnLogin.Location.Y);
+		}
 
-        // Xử lý sự kiện click vào label (nếu cần thêm chức năng)
-        private void guna2HtmlLabel1_Click(object sender, EventArgs e)
-        {
-            // Thêm logic nếu cần
-        }
-    }
+		// Xử lý sự kiện đóng ứng dụng
+		private void btnExit_Click(object sender, EventArgs e)
+		{
+			Application.Exit();
+			this.Close();
+		}
+
+		// Xử lý sự kiện click vào label (nếu cần thêm chức năng)
+		private void guna2HtmlLabel1_Click(object sender, EventArgs e)
+		{
+			// Thêm logic nếu cần
+		}
+	}
 }

@@ -164,6 +164,19 @@
     <Content Include="image\image2.png" />
     <Content Include="image\image3.png" />
     <Content Include="image\search.png" />
+    <None Include="Resources\LogoKTX.jpg" />
+    <None Include="Resources\Them.png" />
+    <None Include="Resources\Sua.jpg" />
+    <None Include="Resources\Xoa.png" />
+    <None Include="Resources\room.png" />
+    <None Include="Resources\new student.png" />
+    <None Include="Resources\logout.png" />
+    <None Include="Resources\Leaved students.png" />
+    <None Include="Resources\Fees.png" />
+    <None Include="Resources\Close.png" />
+    <None Include="Resources\all student living.png" />
+    <None Include="Resources\hostel-1.jpg" />
+    <None Include="Resources\AnhDaiDien.jpg" />
     <None Include="Resources\Screenshot 2024-11-24 185518.png" />
     <None Include="Resources\search.png" />
   </ItemGroup>

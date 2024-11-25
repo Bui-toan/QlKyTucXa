@@ -7,9 +7,10 @@ namespace QlKyTucXa.Classes
 {
 	internal class DataProcesser
 	{
-		string strConnect = "Data Source=DUYTIEN\\SQLEXPRESS;" +
-               "DataBase=QLKTX;User ID=sa;" +
-			   "Password=123456789;Integrated Security=false";
+		string strConnect = "Data Source=DESKTOP-HO543EC\\TOAN1;" +
+			   "DataBase=QLKTX10;User ID=sa;" +
+			   "Password=123456;Integrated Security=false";
+
 
 		SqlConnection sqlConncect = null;
 
@@ -90,5 +91,39 @@ namespace QlKyTucXa.Classes
 
 			return result; // Trả về giá trị
 		}
+		public object GetScalarValue(string query)
+		{
+			using (SqlConnection conn = new SqlConnection(strConnect))
+			{
+				conn.Open();
+				SqlCommand cmd = new SqlCommand(query, conn);
+				return cmd.ExecuteScalar();
+			}
+		}
+		public DataTable ExecuteQuery(string query)
+		{
+			DataTable dataTable = new DataTable();
+			try
+			{
+				OpenConnection(); // Mở kết nối
+				using (SqlCommand cmd = new SqlCommand(query, sqlConncect))
+				{
+					using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+					{
+						adapter.Fill(dataTable); // Đổ dữ liệu vào DataTable
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine("Lỗi khi thực thi truy vấn: " + ex.Message);
+			}
+			finally
+			{
+				CloseConnection(); // Đảm bảo đóng kết nối
+			}
+			return dataTable; // Trả về kết quả
+		}
+
 	}
 }
