@@ -205,7 +205,7 @@ namespace QlKyTucXa
 				// Thêm thiết bị vào phòng (bảng Thietbi_phong)
 
 				string query = $"INSERT INTO Thietbi_phong (MaPhong, Mathietbi, soluong, Tinhtrang) " +
-							   $"VALUES ('{maPhong}', '{mathietbi}', {numSoLuong.Value}, '{txtTinhTrang.Text}')";
+							   $"VALUES ('{maPhong}', '{mathietbi}', {numSoLuong.Value}, N'{txtTinhTrang.Text}')";
 				dataProcesser.ChangeData(query);
 
 				LoadThietBiPhong(); // Tải lại dữ liệu
@@ -273,8 +273,20 @@ namespace QlKyTucXa
 				string deleteQuery = $"DELETE FROM Thietbi_phong WHERE MaPhong = '{maPhong}' AND Mathietbi = '{mathietbi}'";
 				dataProcesser.ChangeData(deleteQuery);
 
-				LoadThietBiPhong(); // Tải lại dữ liệu thiết bị trong phòng
-				MessageBox.Show("Xóa thiết bị thành công!", "Thông báo");
+				string query = "SELECT tb.Mathietbi, tb.Tenthietbi, tbp.Soluong, tbp.Tinhtrang " +
+							   "FROM Thietbi_phong tbp " +
+							   "JOIN Thietbi tb ON tbp.Mathietbi = tb.Mathietbi " +
+							   $"WHERE tbp.MaPhong = '{maPhong}'";
+
+				DataTable thietBiTable = dataProcesser.ExecuteQuery(query);
+				dataGridViewThietBiPhong.DataSource = thietBiTable;
+
+                MessageBox.Show("Xóa thiết bị thành công!", "Thông báo");
+
+                LoadThietBiPhong(); // Tải lại dữ liệu thiết bị trong phòng
+
+                CustomizeDataGridThietBiPhong();
+
 			}
 			catch (Exception ex)
 			{

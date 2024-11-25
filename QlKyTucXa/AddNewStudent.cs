@@ -380,8 +380,8 @@ namespace QlKyTucXa
 									$"VALUES (N'{inputData[1]}', N'{inputData[2]}', '{inputData[3]}', N'{inputData[4]}', " +
 									$"'{inputData[5]}', '{inputData[6]}', '{inputData[7]}', N'{inputData[12]}')";
 
-			string insertSVPhong = $"INSERT INTO SV_Phong (MaSoThue, Masv, Maphong, NgayBdau, Ngaykt, Ghichu) " +
-								   $"VALUES (N'{inputData[0]}', N'{inputData[1]}', N'{inputData[8]}', '{inputData[9]}', '{inputData[10]}', N'{inputData[11]}')";
+			string insertSVPhong = $"INSERT INTO SV_Phong (MaSoThue, Masv, Maphong, NgayBdau, Ngaykt, Ghichu, TrangThai) " +
+								   $"VALUES (N'{inputData[0]}', N'{inputData[1]}', N'{inputData[8]}', '{inputData[9]}', '{inputData[10]}', N'{inputData[11]}', 1)";
 			string updatePhong = $"UPDATE Phong SET Songuoidao = Songuoidao + 1 WHERE MaPhong = '{inputData[8]}'";
 			try
 			{

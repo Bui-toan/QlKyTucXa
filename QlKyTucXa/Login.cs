@@ -34,19 +34,19 @@ namespace QlKyTucXa
 		// Load hình ảnh từ thư mục
 		private void LoadImagesFromFolder()
 		{
-			imagePaths.Add(@"C:\Users\bui toan\Downloads\image\image1.png");
-			imagePaths.Add(@"C:\Users\bui toan\Downloads\image\image2.png");
-			imagePaths.Add(@"C:\Users\bui toan\Downloads\image\image3.png");
+			//imagePaths.Add(@"C:\Users\bui toan\Downloads\image\image1.png");
+			//imagePaths.Add(@"C:\Users\bui toan\Downloads\image\image2.png");
+			//imagePaths.Add(@"C:\Users\bui toan\Downloads\image\image3.png");
 
-			// Hiển thị ảnh đầu tiên nếu có ảnh trong thư mục
-			if (imagePaths.Count > 0)
-			{
-				pictureBox1.Image = Image.FromFile(imagePaths[0]);
-			}
-			else
-			{
-				MessageBox.Show("Không tìm thấy ảnh trong thư mục.");
-			}
+			//// Hiển thị ảnh đầu tiên nếu có ảnh trong thư mục
+			//if (imagePaths.Count > 0)
+			//{
+			//	pictureBox1.Image = Image.FromFile(imagePaths[0]);
+			//}
+			//else
+			//{
+			//	MessageBox.Show("Không tìm thấy ảnh trong thư mục.");
+			//}
 		}
 
 		// Bắt đầu trình chiếu ảnh tự động

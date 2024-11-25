@@ -7,12 +7,11 @@ namespace QlKyTucXa.Classes
 {
 	internal class DataProcesser
 	{
-		string strConnect = "Data Source=DESKTOP-HO543EC\\TOAN1;" +
-			   "DataBase=QLKTX20;User ID=sa;" +
-			   "Password=123456;Integrated Security=false";
+        string strConnect = "Data Source=LAPTOP-FPHN58G4\\SQLEXPRESS;"
+							+ "Initial Catalog=QLKTX;Integrated Security=True";
 
 
-		SqlConnection sqlConncect = null;
+        SqlConnection sqlConncect = null;
 
 		//Open a connection to Server
 		void OpenConnection()
