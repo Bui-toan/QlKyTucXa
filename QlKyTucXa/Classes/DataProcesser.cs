@@ -8,7 +8,7 @@ namespace QlKyTucXa.Classes
 	internal class DataProcesser
 	{
 		string strConnect = "Data Source=DESKTOP-HO543EC\\TOAN1;" +
-			   "DataBase=QLKTX10;User ID=sa;" +
+			   "DataBase=QLKTX20;User ID=sa;" +
 			   "Password=123456;Integrated Security=false";
 
 
@@ -64,32 +64,6 @@ namespace QlKyTucXa.Classes
 				CloseConnection();  // Đóng kết nối sau khi thực hiện xong
 				sqlcmm.Dispose();   // Giải phóng tài nguyên
 			}
-		}
-		public object GetColumnValue(string sqlQuery, string username)
-		{
-			object result = null; // Biến để lưu giá trị trả về
-
-			try
-			{
-				OpenConnection(); // Mở kết nối
-
-				SqlCommand sqlCommand = new SqlCommand(sqlQuery, sqlConncect);
-				sqlCommand.Parameters.AddWithValue("@username", username); // Thêm tham số truy vấn
-
-				result = sqlCommand.ExecuteScalar(); // Lấy giá trị của cột đầu tiên từ kết quả
-
-				CloseConnection(); // Đóng kết nối
-			}
-			catch (Exception ex)
-			{
-				Console.WriteLine("Có lỗi xảy ra: " + ex.Message);
-			}
-			finally
-			{
-				CloseConnection();
-			}
-
-			return result; // Trả về giá trị
 		}
 		public object GetScalarValue(string query)
 		{

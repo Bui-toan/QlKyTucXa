@@ -6,12 +6,12 @@ using System.Windows.Forms;
 
 namespace QlKyTucXa
 {
-	public partial class ChiTietPhong : Form
+	public partial class ChiTietPhong123 : Form
 	{
 		private DataProcesser dataProcesser;
 		private string maPhong;
 
-		public ChiTietPhong(string maPhong)
+		public ChiTietPhong123(string maPhong)
 		{
 			InitializeComponent();
 			dataProcesser = new DataProcesser();
@@ -202,16 +202,6 @@ namespace QlKyTucXa
 				// Kiểm tra xem mã thiết bị đã tồn tại trong bảng Thietbi chưa
 				string checkQuery = $"SELECT COUNT(*) FROM Thietbi WHERE mathietbi = '{mathietbi}'";
 				DataTable dtCheck = dataProcesser.ReadData(checkQuery);
-				bool isMathietbiExists = Convert.ToInt32(dtCheck.Rows[0][0]) > 0;
-
-				if (!isMathietbiExists)
-				{
-					string insertThietbiQuery = $"INSERT INTO Thietbi (mathietbi, tenthietbi) " +
-												$"VALUES ('{mathietbi}', N'{tenthietbi}')";
-					dataProcesser.ChangeData(insertThietbiQuery);
-					MessageBox.Show("Thiết bị đã được thêm vào hệ thống!", "Thông báo");
-				}
-
 				// Thêm thiết bị vào phòng (bảng Thietbi_phong)
 
 				string query = $"INSERT INTO Thietbi_phong (MaPhong, Mathietbi, soluong, Tinhtrang) " +

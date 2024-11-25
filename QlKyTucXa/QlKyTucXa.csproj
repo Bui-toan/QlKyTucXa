@@ -52,11 +52,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChiTietPhong.cs">
+    <Compile Include="ChiTietPhong123.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChiTietPhong.Designer.cs">
-      <DependentUpon>ChiTietPhong.cs</DependentUpon>
+    <Compile Include="ChiTietPhong123.Designer.cs">
+      <DependentUpon>ChiTietPhong123.cs</DependentUpon>
     </Compile>
     <Compile Include="Data\DAO.cs" />
     <Compile Include="AddNewRoom.cs">
@@ -117,8 +117,8 @@
     <EmbeddedResource Include="AddNewStudent.resx">
       <DependentUpon>AddNewStudent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChiTietPhong.resx">
-      <DependentUpon>ChiTietPhong.cs</DependentUpon>
+    <EmbeddedResource Include="ChiTietPhong123.resx">
+      <DependentUpon>ChiTietPhong123.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>

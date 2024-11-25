@@ -300,7 +300,7 @@
 			this.cbMaQue.IntegralHeight = false;
 			this.cbMaQue.ItemHeight = 30;
 			this.cbMaQue.Location = new System.Drawing.Point(184, 283);
-			this.cbMaQue.MaxDropDownItems = 6;
+			this.cbMaQue.MaxDropDownItems = 5;
 			this.cbMaQue.Name = "cbMaQue";
 			this.cbMaQue.Size = new System.Drawing.Size(330, 36);
 			this.cbMaQue.TabIndex = 30;
@@ -314,8 +314,10 @@
 			this.cbMaKhoa.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
 			this.cbMaKhoa.Font = new System.Drawing.Font("Segoe UI", 10F);
 			this.cbMaKhoa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+			this.cbMaKhoa.IntegralHeight = false;
 			this.cbMaKhoa.ItemHeight = 30;
 			this.cbMaKhoa.Location = new System.Drawing.Point(188, 355);
+			this.cbMaKhoa.MaxDropDownItems = 5;
 			this.cbMaKhoa.Name = "cbMaKhoa";
 			this.cbMaKhoa.Size = new System.Drawing.Size(326, 36);
 			this.cbMaKhoa.TabIndex = 31;
@@ -329,8 +331,10 @@
 			this.cbMaLop.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
 			this.cbMaLop.Font = new System.Drawing.Font("Segoe UI", 10F);
 			this.cbMaLop.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+			this.cbMaLop.IntegralHeight = false;
 			this.cbMaLop.ItemHeight = 30;
 			this.cbMaLop.Location = new System.Drawing.Point(188, 433);
+			this.cbMaLop.MaxDropDownItems = 5;
 			this.cbMaLop.Name = "cbMaLop";
 			this.cbMaLop.Size = new System.Drawing.Size(326, 36);
 			this.cbMaLop.TabIndex = 32;
@@ -344,8 +348,10 @@
 			this.cbPhong.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
 			this.cbPhong.Font = new System.Drawing.Font("Segoe UI", 10F);
 			this.cbPhong.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+			this.cbPhong.IntegralHeight = false;
 			this.cbPhong.ItemHeight = 30;
 			this.cbPhong.Location = new System.Drawing.Point(188, 499);
+			this.cbPhong.MaxDropDownItems = 5;
 			this.cbPhong.Name = "cbPhong";
 			this.cbPhong.Size = new System.Drawing.Size(326, 36);
 			this.cbPhong.TabIndex = 33;

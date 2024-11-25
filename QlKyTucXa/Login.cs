@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
@@ -18,7 +19,7 @@ namespace QlKyTucXa
 		{
 			InitializeComponent();
 			SetupForm();
-			/*   LoadImagesFromFolder();*/
+			LoadImagesFromFolder();
 			StartImageSlider();
 		}
 
@@ -33,9 +34,9 @@ namespace QlKyTucXa
 		// Load hình ảnh từ thư mục
 		private void LoadImagesFromFolder()
 		{
-			imagePaths.Add(@".\image\image1.png");
-			imagePaths.Add(@".\image\image2.png");
-			imagePaths.Add(@".\image\image3.png");
+			imagePaths.Add(@"C:\Users\bui toan\Downloads\image\image1.png");
+			imagePaths.Add(@"C:\Users\bui toan\Downloads\image\image2.png");
+			imagePaths.Add(@"C:\Users\bui toan\Downloads\image\image3.png");
 
 			// Hiển thị ảnh đầu tiên nếu có ảnh trong thư mục
 			if (imagePaths.Count > 0)
@@ -51,6 +52,10 @@ namespace QlKyTucXa
 		// Bắt đầu trình chiếu ảnh tự động
 		private void StartImageSlider()
 		{
+			//Khởi tạo Timer với khoảng thời gian 2 giây.
+			//Gắn sự kiện Elapsed để định nghĩa công việc cần thực hiện mỗi khi Timer "hết giờ".
+			//Đảm bảo Timer tự động lặp lại công việc khi hết khoảng thời gian(nhờ AutoReset = true).
+			//Bật Timer để bắt đầu hoạt động.
 			imageSliderTimer = new System.Timers.Timer(2000); // Chuyển ảnh mỗi 2 giây
 			imageSliderTimer.Elapsed += OnTimedEvent;
 			imageSliderTimer.AutoReset = true;
@@ -109,12 +114,7 @@ namespace QlKyTucXa
 		}
 
 		// Xử lý sự kiện điều chỉnh kích thước form
-		private void FormLogin_Resize(object sender, EventArgs e)
-		{
-			txtUsername.Width = this.ClientSize.Width - 100;
-			txtPassword.Width = this.ClientSize.Width - 100;
-			btnLogin.Location = new Point((this.ClientSize.Width - btnLogin.Width) / 2, btnLogin.Location.Y);
-		}
+
 
 		// Xử lý sự kiện đóng ứng dụng
 		private void btnExit_Click(object sender, EventArgs e)

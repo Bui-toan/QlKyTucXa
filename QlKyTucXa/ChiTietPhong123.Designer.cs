@@ -1,6 +1,6 @@
 ﻿namespace QlKyTucXa
 {
-    partial class ChiTietPhong
+    partial class ChiTietPhong123
     {
         /// <summary>
         /// Required designer variable.
@@ -31,6 +31,7 @@
 			this.dataGridViewThongTinPhong = new System.Windows.Forms.DataGridView();
 			this.dataGridViewThietBiPhong = new System.Windows.Forms.DataGridView();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.cmbMathietbi = new Guna.UI2.WinForms.Guna2ComboBox();
 			this.numSoLuong = new System.Windows.Forms.NumericUpDown();
 			this.label3 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
@@ -42,7 +43,6 @@
 			this.btnXoa = new Guna.UI2.WinForms.Guna2Button();
 			this.btnSua = new Guna.UI2.WinForms.Guna2Button();
 			this.btnThoat = new Guna.UI2.WinForms.Guna2Button();
-			this.cmbMathietbi = new Guna.UI2.WinForms.Guna2ComboBox();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridViewThongTinPhong)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridViewThietBiPhong)).BeginInit();
 			this.groupBox1.SuspendLayout();
@@ -89,6 +89,22 @@
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = ".";
 			this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+			// 
+			// cmbMathietbi
+			// 
+			this.cmbMathietbi.BackColor = System.Drawing.Color.Transparent;
+			this.cmbMathietbi.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+			this.cmbMathietbi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cmbMathietbi.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+			this.cmbMathietbi.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+			this.cmbMathietbi.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.cmbMathietbi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+			this.cmbMathietbi.ItemHeight = 30;
+			this.cmbMathietbi.Location = new System.Drawing.Point(17, 110);
+			this.cmbMathietbi.Name = "cmbMathietbi";
+			this.cmbMathietbi.Size = new System.Drawing.Size(158, 36);
+			this.cmbMathietbi.TabIndex = 23;
+			this.cmbMathietbi.SelectedIndexChanged += new System.EventHandler(this.cmbMathietbi_SelectedIndexChanged);
 			// 
 			// numSoLuong
 			// 
@@ -218,28 +234,12 @@
 			this.btnThoat.Text = ".";
 			this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
 			// 
-			// cmbMathietbi
-			// 
-			this.cmbMathietbi.BackColor = System.Drawing.Color.Transparent;
-			this.cmbMathietbi.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-			this.cmbMathietbi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cmbMathietbi.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-			this.cmbMathietbi.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-			this.cmbMathietbi.Font = new System.Drawing.Font("Segoe UI", 10F);
-			this.cmbMathietbi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-			this.cmbMathietbi.ItemHeight = 30;
-			this.cmbMathietbi.Location = new System.Drawing.Point(17, 110);
-			this.cmbMathietbi.Name = "cmbMathietbi";
-			this.cmbMathietbi.Size = new System.Drawing.Size(158, 36);
-			this.cmbMathietbi.TabIndex = 23;
-			this.cmbMathietbi.SelectedIndexChanged += new System.EventHandler(this.cmbMathietbi_SelectedIndexChanged);
-			// 
-			// ChiTietPhong
+			// ChiTietPhong123
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.ClientSize = new System.Drawing.Size(1056, 649);
+			this.ClientSize = new System.Drawing.Size(1056, 753);
 			this.Controls.Add(this.btnThoat);
 			this.Controls.Add(this.btnSua);
 			this.Controls.Add(this.btnXoa);
@@ -247,7 +247,7 @@
 			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.dataGridViewThietBiPhong);
 			this.Controls.Add(this.dataGridViewThongTinPhong);
-			this.Name = "ChiTietPhong";
+			this.Name = "ChiTietPhong123";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "ChiTietPhong";
 			this.Load += new System.EventHandler(this.ChiTietPhong_Load);

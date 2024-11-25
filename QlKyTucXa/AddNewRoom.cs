@@ -172,7 +172,7 @@ namespace QlKyTucXa
 				string maPhong = dataGridView1.Rows[e.RowIndex].Cells["MaPhong"].Value.ToString();
 
 				// Mở form chi tiết phòng
-				ChiTietPhong chitietPhongForm = new ChiTietPhong(maPhong);
+				ChiTietPhong123 chitietPhongForm = new ChiTietPhong123(maPhong);
 				chitietPhongForm.ShowDialog();
 
 			}
