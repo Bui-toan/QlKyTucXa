@@ -200,16 +200,29 @@ namespace QlKyTucXa
 				string tenthietbi = txtTenThietBi.Text; // Tên thiết bị (được điền tự động)
 
 				// Kiểm tra xem mã thiết bị đã tồn tại trong bảng Thietbi chưa
-				string checkQuery = $"SELECT COUNT(*) FROM Thietbi WHERE mathietbi = '{mathietbi}'";
+				string checkQuery = $"SELECT COUNT(*) FROM Thietbi_phong WHERE Mathietbi = '{mathietbi}' AND MaPhong = '{maPhong}'";
 				DataTable dtCheck = dataProcesser.ReadData(checkQuery);
-				// Thêm thiết bị vào phòng (bảng Thietbi_phong)
 
-				string query = $"INSERT INTO Thietbi_phong (MaPhong, Mathietbi, soluong, Tinhtrang) " +
+				// Nếu đã tồn tại, hiển thị thông báo và dừng thực hiện
+				if (dtCheck.Rows.Count > 0 && Convert.ToInt32(dtCheck.Rows[0][0]) > 0)
+				{
+					MessageBox.Show("Thiết bị đã tồn tại trong phòng này!", "Thông báo");
+					return; // Ngừng thêm
+				}
+				else if (numSoLuong.Value <= 0)
+				{
+					MessageBox.Show("Phải nhập số lượng thiết bị!", "Thông báo");
+					return; // Ngừng thêm
+				}
+				else
+				{
+					string query = $"INSERT INTO Thietbi_phong (MaPhong, Mathietbi, soluong, Tinhtrang) " +
 							   $"VALUES ('{maPhong}', '{mathietbi}', {numSoLuong.Value}, N'{txtTinhTrang.Text}')";
-				dataProcesser.ChangeData(query);
+					dataProcesser.ChangeData(query);
 
-				LoadThietBiPhong(); // Tải lại dữ liệu
-				MessageBox.Show("Thêm thiết bị vào phòng thành công!", "Thông báo");
+					LoadThietBiPhong(); // Tải lại dữ liệu
+					MessageBox.Show("Thêm thiết bị vào phòng thành công!", "Thông báo");
+				}
 			}
 			catch (Exception ex)
 			{
@@ -238,15 +251,27 @@ namespace QlKyTucXa
 					MessageBox.Show("Vui lòng nhập đầy đủ tình trạng thiết bị!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 					return;
 				}
+				string checkQuery = $"SELECT COUNT(*) FROM Thietbi_phong WHERE Mathietbi = '{mathietbi}' AND MaPhong = '{maPhong}'";
+				DataTable dtCheck = dataProcesser.ReadData(checkQuery);
 
-				// Cập nhật thông tin thiết bị trong bảng Thietbi_phong
-				string updateQuery = $"UPDATE Thietbi_phong " +
+				// Nếu đã tồn tại, hiển thị thông báo và dừng thực hiện
+
+				if (numSoLuong.Value <= 0)
+				{
+					MessageBox.Show("Phải nhập số lượng thiết bị!", "Thông báo");
+					return; // Ngừng thêm
+				}
+				else
+				{
+					// Cập nhật thông tin thiết bị trong bảng Thietbi_phong
+					string updateQuery = $"UPDATE Thietbi_phong " +
 									 $"SET soluong = {numSoLuong.Value}, Tinhtrang = N'{tinhtrang}' " +
 									 $"WHERE MaPhong = '{maPhong}' AND Mathietbi = '{mathietbi}'";
 
-				dataProcesser.ChangeData(updateQuery);
-				LoadThietBiPhong(); // Tải lại dữ liệu thiết bị trong phòng
-				MessageBox.Show("Cập nhật thiết bị thành công!", "Thông báo");
+					dataProcesser.ChangeData(updateQuery);
+					LoadThietBiPhong(); // Tải lại dữ liệu thiết bị trong phòng
+					MessageBox.Show("Cập nhật thiết bị thành công!", "Thông báo");
+				}
 			}
 			catch (Exception ex)
 			{
@@ -281,11 +306,11 @@ namespace QlKyTucXa
 				DataTable thietBiTable = dataProcesser.ExecuteQuery(query);
 				dataGridViewThietBiPhong.DataSource = thietBiTable;
 
-                MessageBox.Show("Xóa thiết bị thành công!", "Thông báo");
+				MessageBox.Show("Xóa thiết bị thành công!", "Thông báo");
 
-                LoadThietBiPhong(); // Tải lại dữ liệu thiết bị trong phòng
+				LoadThietBiPhong(); // Tải lại dữ liệu thiết bị trong phòng
 
-                CustomizeDataGridThietBiPhong();
+				CustomizeDataGridThietBiPhong();
 
 			}
 			catch (Exception ex)
