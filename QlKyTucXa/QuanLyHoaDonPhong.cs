@@ -530,7 +530,7 @@ namespace QlKyTucXa
             }
             else
             {
-                exSheet.Range["D7"].Value = "Không có phòng nào chưa lập hóa đơn trong tháng " + int.Parse(cbThang.SelectedItem.ToString());
+                exSheet.Range["D7"].Value = "Không có phòng nào chưa thanh toán hóa đơn trong tháng " + int.Parse(cbThang.SelectedItem.ToString());
             }
             exSheet.Name = "Danh Sach Thang " + int.Parse(cbThang.SelectedItem.ToString());
             exBook.Activate();
@@ -606,7 +606,7 @@ namespace QlKyTucXa
             }
             else
             {
-                exSheet.Range["D7"].Value = "Không có phòng nào chưa lập hóa đơn trong tháng " + int.Parse(cbThang.SelectedItem.ToString());
+                exSheet.Range["D7"].Value = "Không có phòng thanh toán lập hóa đơn trong tháng " + int.Parse(cbThang.SelectedItem.ToString());
             }
             exSheet.Name = "Danh Sach Thang " + int.Parse(cbThang.SelectedItem.ToString());
             exBook.Activate();
