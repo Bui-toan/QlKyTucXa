@@ -13,7 +13,8 @@ namespace QlKyTucXa
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new AddNewStudent());
-		}
+			Application.Run(new AddNewRoom());
+            
+        }
 	}
 }
