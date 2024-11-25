@@ -675,11 +675,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1159, 782);
             this.Controls.Add(this.btn_ExportHoaDon);
             this.Controls.Add(this.guna2GroupBox1);
             this.Controls.Add(this.gb_ThongTin);
             this.Controls.Add(this.label2);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "ChiTietHoaDon";
             this.Text = "ChiTietHoaDon";
             this.Load += new System.EventHandler(this.ChiTietHoaDon_Load);
